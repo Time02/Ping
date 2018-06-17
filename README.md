@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/geerlingguy/Ping.svg?branch=1.x)](https://travis-ci.org/geerlingguy/Ping)
 
+> 修改了 host 部分，使用更加语义话，利于理解
+
 A PHP class to ping hosts.
 
 There are a ton of different methods of pinging a server using PHP, and I've found most to be poorly documented or downright dangerous in their implementation.
