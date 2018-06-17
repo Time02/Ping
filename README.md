@@ -18,8 +18,8 @@ This is a very simple class. Just create an instance, and run `ping()`.
 
 ```php
 $host = 'www.example.com';
-$ping = new Ping($host);
-$latency = $ping->ping();
+$ping = new Ping();
+$latency = $ping->ping($host);
 if ($latency !== false) {
   print 'Latency is ' . $latency . ' ms';
 }
@@ -33,13 +33,13 @@ You can also specify the ttl (maximum hops) and timeout when creating the instan
 ```php
 $ttl = 128;
 $timeout = 5;
-$ping = new Ping($host, $ttl, $timeout);
+$ping = new Ping($ttl, $timeout);
 ```
 
 ...or using the `setTtl()` or `setTimeout()` methods:
 
 ```php
-$ping = new Ping($host);
+$ping = new Ping();
 $ping->setTtl(128);
 $ping->setTimeout(5);
 ```
@@ -47,7 +47,7 @@ $ping->setTimeout(5);
 You can change the host using the `setHost()` method:
 
 ```php
-$ping = new Ping($host);
+$ping = new Ping();
 ...
 $ping->setHost('www.anotherexample.com');
 ```

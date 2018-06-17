@@ -51,12 +51,7 @@ class Ping {
    *   Timeout (in seconds) used for ping and fsockopen().
    * @throws \Exception if the host is not set.
    */
-  public function __construct($host, $ttl = 255, $timeout = 10) {
-    if (!isset($host)) {
-      throw new \Exception("Error: Host name not supplied.");
-    }
-
-    $this->host = $host;
+  public function __construct($ttl = 255, $timeout = 10) {
     $this->ttl = $ttl;
     $this->timeout = $timeout;
   }
@@ -181,8 +176,10 @@ class Ping {
    * @return mixed
    *   Latency as integer, in ms, if host is reachable or FALSE if host is down.
    */
-  public function ping($method = 'exec') {
+  public function ping($host, $method = 'exec') {
     $latency = false;
+
+    $this->setHost($host);
 
     switch ($method) {
       case 'exec':
